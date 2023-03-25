@@ -12,7 +12,7 @@ import java.util.List;
 @NoArgsConstructor
 public class CountryProviderImpl implements CountryProvider {
 
-    String filePath = "src/main/resources/countries";
+    private String filePath = "src/main/resources/countries";
 
     public CountryProviderImpl(String filePath) {
         this.filePath = filePath;
@@ -21,7 +21,7 @@ public class CountryProviderImpl implements CountryProvider {
     @Override
     public List<Country> getAllCountries() {
         List<Country> countriesList = new ArrayList<>();
-        try(BufferedReader bufferedReader = new BufferedReader(new FileReader(filePath))) {
+        try (BufferedReader bufferedReader = new BufferedReader(new FileReader(filePath))) {
             String line;
             while ((line = bufferedReader.readLine()) != null) {
                 String[] lineResult = line.split(";");
